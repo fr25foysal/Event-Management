@@ -60,7 +60,7 @@ const Home = () => {
             <div className="hero min-h-screen bg-[url('./assets/images/slider1.jpg')]">
               <div className="hero-overlay bg-black bg-opacity-60"></div>
               <div className="hero-content text-center text-neutral-content ">
-                <div className="max-w-md ml-0 justify-self-start">
+                <div data-aos="fade-up" className="max-w-md ml-0 justify-self-start">
                   <h1 className="mb-5 text-5xl font-bold">Turning Visions into Remarkable Events</h1>
                   <p className="mb-5">
                   Transforming ideas into extraordinary events, our meticulous planning ensures your message resonates, leaving a memorable impact on attendees.
@@ -118,6 +118,7 @@ const Home = () => {
               <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
                 {services.slice(0, 6).map((service) => (
                   <HomeServiceCard
+                  data-aos="fade-up"
                     service={service}
                     key={service.id}
                   ></HomeServiceCard>
@@ -135,7 +136,7 @@ const Home = () => {
               </div>
             </div>
           </div>
-          <div className="h-96 bg-[url('/conferance.jpg')] bg-cover bg-center overflow-hidden"></div>
+          <div data-aos="fade-left" className="h-96 bg-[url('/conferance.jpg')] bg-cover bg-center overflow-hidden"></div>
           {/* Review Slider */}
           <div className="bg-slate-100 py-16 justify-center">
            <SectionTitle text={'Testimonials'}></SectionTitle>
