@@ -1,7 +1,7 @@
 import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react' 
 import HomeServiceCard from '../../Components/HomeServiceCard/HomeServiceCard';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import SectionTitle from '../../Components/SectionTitle/SectionTitle';
 import { useEffect, useState } from 'react';
 import SingleStuff from '../../Components/StuffCard/SingleStuff';
@@ -32,7 +32,7 @@ const Home = () => {
                   if (mouseOver) return
                   timeout = setTimeout(() => {
                     slider.next()
-                  }, 4000)
+                  }, 4500)
                 }
                 slider.on("created", () => {
                   slider.container.addEventListener("mouseover", () => {
@@ -58,16 +58,16 @@ const Home = () => {
         <div ref={sliderRef} className="keen-slider h-fit bg-slate-700">
           <div className="keen-slider__slide">
             <div className="hero min-h-screen bg-[url('./assets/images/slider1.jpg')]">
-              <div className="hero-overlay bg-opacity-60"></div>
-              <div className="hero-content text-center text-neutral-content">
-                <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+              <div className="hero-overlay bg-black bg-opacity-60"></div>
+              <div className="hero-content text-center text-neutral-content ">
+                <div className="max-w-md ml-0 justify-self-start">
+                  <h1 className="mb-5 text-5xl font-bold">Turning Visions into Remarkable Events</h1>
                   <p className="mb-5">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                    assumenda excepturi exercitationem quasi. In deleniti eaque
-                    aut repudiandae et a id nisi.
+                  Transforming ideas into extraordinary events, our meticulous planning ensures your message resonates, leaving a memorable impact on attendees.
                   </p>
-                  <button className="btn btn-primary">Get Started</button>
+                  <button className="btn hover:bg-slate-800 bg-transparent text-white">
+                    <Link to={'/services'}>Get Started</Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -75,16 +75,16 @@ const Home = () => {
 
           <div className="keen-slider__slide">
             <div className="hero min-h-screen bg-[url('./assets/images/slider2.jpg')]">
-              <div className="hero-overlay bg-opacity-60"></div>
+              <div className="hero-overlay bg-black bg-opacity-60"></div>
               <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                  <h1 className="mb-5 text-5xl font-bold">Strategic Events for Success</h1>
                   <p className="mb-5">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                    assumenda excepturi exercitationem quasi. In deleniti eaque
-                    aut repudiandae et a id nisi.
+                  Strategically designed events that align with your objectives, fostering connections, and driving success in your corporate endeavors.
                   </p>
-                  <button className="btn btn-primary">Get Started</button>
+                  <button className="btn hover:bg-slate-700 hover:text-white">
+                    <Link to={'/services'}>Book Now</Link>
+                    </button>
                 </div>
               </div>
             </div>
@@ -92,16 +92,16 @@ const Home = () => {
 
           <div className="keen-slider__slide">
             <div className="hero min-h-screen bg-[url('./assets/images/slider3.jpg')] bg-bottom">
-              <div className="hero-overlay bg-opacity-60"></div>
+              <div className="hero-overlay bg-black bg-opacity-60"></div>
               <div className="hero-content text-center text-neutral-content">
                 <div className="max-w-md">
-                  <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
+                  <h1 className="mb-5 text-5xl font-bold">Elevate Your Corporate Events</h1>
                   <p className="mb-5">
-                    Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                    assumenda excepturi exercitationem quasi. In deleniti eaque
-                    aut repudiandae et a id nisi.
+                  Crafting immersive experiences tailored to your brand, leaving a lasting impression on clients, partners, and stakeholders alike.
                   </p>
-                  <button className="btn btn-primary">Get Started</button>
+                  <button className="btn hover:btn-primary bg-transparent text-white">
+                    <Link to={'/services/1'}>Know More</Link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -115,7 +115,7 @@ const Home = () => {
                 <SectionTitle text={"Our Services"}></SectionTitle>
               </div>
 
-              <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
+              <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
                 {services.slice(0, 6).map((service) => (
                   <HomeServiceCard
                     service={service}

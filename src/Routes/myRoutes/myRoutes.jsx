@@ -21,7 +21,8 @@ const myRoutes = createBrowserRouter([
             },
             {
                 path: '/services',
-                element: <Services></Services>
+                element: <Services></Services>,
+                loader: ()=> fetch('/services.json')
             },
             {
                 path: '/about-us' ,
@@ -45,7 +46,8 @@ const myRoutes = createBrowserRouter([
             },
             {
                 path: 'services/:id',
-                element: <SingleService></SingleService>
+                element: <SingleService></SingleService>,
+                loader: ()=> fetch('/services.json')
             }
            
         ]

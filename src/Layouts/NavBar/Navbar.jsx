@@ -95,7 +95,8 @@ const Navbar = () => {
               </ul>
             </div>
             <Link to={'/'}>
-            <img src="/logo.png" className="w-1/2" alt="" /></Link>
+            <img src="/logo.png" className="w-60  mx-auto lg:mx-0" alt="" />
+            </Link>
             </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 gap-x-1">
@@ -108,12 +109,12 @@ const Navbar = () => {
           </div>
           <div className="navbar-end gap-x-3">
             {
-              user ? <><div className="bg-gray-700 text-white flex content-center gap-x-2 border-2 rounded-3xl">
-                <img className="w-10 rounded-full bg-slate-400" src={user ? `${user.photoURL}` : '/user.png'} alt="" />
-                <p className="pr-3">{user.displayName}</p>
-              </div><button onClick={handleLogOut} className="btn btn-sm">Logout</button>
+              user ? <><div className="bg-gray-700 h-12 text-white flex content-center gap-x-2 border-2 rounded-3xl">
+                <img className=" rounded-full bg-slate-400" src={user ? `${user.photoURL}` : '/user.png'} alt="" />
+                <p className="pr-4 pl-1 pt-3">{user.displayName}</p>
+              </div><button onClick={handleLogOut} className="btn bg-transparent hover:bg-gray-700 border-2 hover:text-white border-black rounded-3xl">Logout</button>
               </> :
-              <Link to={'/login'} className="btn btn-sm">Sign In</Link>
+              <Link to={'/login'} className="btn bg-transparent hover:bg-gray-700 border-2 hover:text-white border-black rounded-3xl">Sign In</Link>
             }
             
             

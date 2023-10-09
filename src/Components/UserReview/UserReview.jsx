@@ -11,7 +11,7 @@ const UserReview = ({name, text, position,image }) => {
             />
             <div className="flex w-full flex-col gap-0.5">
               <div className="flex items-center justify-between">
-                <h5 className="block font-sans text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                <h5 className="block text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                  {name}
                 </h5>
                 <div className="5 flex items-center gap-0">
@@ -82,13 +82,13 @@ const UserReview = ({name, text, position,image }) => {
                   </svg>
                 </div>
               </div>
-              <p className="block font-sans text-base font-light leading-relaxed text-blue-gray-900 antialiased">
+              <p className="block text-base font-light leading-relaxed text-blue-gray-900 antialiased">
                {position}
               </p>
             </div>
           </div>
           <div className="mb-6 p-0">
-            <p className="block font-sans text-base font-light leading-relaxed text-inherit antialiased">
+            <p className="block  text-base font-light leading-relaxed text-inherit antialiased">
              {text}
             </p>
           </div>
