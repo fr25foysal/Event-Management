@@ -1,0 +1,30 @@
+[
+    {
+      "id": 1,
+      "name": "Jane Smith",
+      "position": "Founder",
+      "image": "https://i.ibb.co/R0SZdWz/founder.jpg",
+      "twitterLink": "#",
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    {
+      "id": 2,
+      "name": "Maeve Willey",
+      "position": "CEO",
+      "image": "https://i.ibb.co/80LXmJX/ceo.jpg",
+      "twitterLink": "#",
+      "linkedin": "#",
+      "instagram": "#"
+    },
+    {
+      "id": 3,
+      "name": "Michael Johnson",
+      "position": "Event Manager",
+      "image": "https://i.ibb.co/qjmMPjt/event-manager.jpg",
+      "twitterLink": "#",
+      "linkedin": "#",
+      "instagram": "#"
+    }
+  ]
+  

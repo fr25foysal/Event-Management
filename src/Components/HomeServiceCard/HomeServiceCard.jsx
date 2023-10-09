@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 
 const HomeServiceCard = ({service}) => {
-    const {name, imageUrl, price, shortDescription } = service
+    const {name,id, imageUrl, price, shortDescription } = service
     return (
       <div>
-        <div className="h-full hover:scale-105 transition-transform rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+        <div className="h-full hover:scale-105 transition rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
           <div className="h-64 mx-4 overflow-hidden rounded-lg bg-clip-border  ">
             <img
               src={imageUrl}
@@ -11,7 +12,7 @@ const HomeServiceCard = ({service}) => {
               className="w-full mt-4 h-full rounded-lg"
             />
           </div>
-          <div className="p-6 flex items-stretch flex-col">
+          <div className="p-6 ">
             
               <h5 className="mb-2 block   text-xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                 {name}
@@ -29,7 +30,10 @@ const HomeServiceCard = ({service}) => {
               type="button"
               data-ripple-light="true"
             >
-              Read More
+              <Link
+              to={`/services/${id}`}
+              >Details</Link>
+              
             </button>
           </div>
         </div>

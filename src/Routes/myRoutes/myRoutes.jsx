@@ -7,6 +7,7 @@ import Dashboard from "../../Pages/Dashboard/Dashboard";
 import Managemants from "../../Pages/Managements/Managemants";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
+import SingleService from "../../Pages/SingleService/SingleService";
 
 const myRoutes = createBrowserRouter([
     {
@@ -37,9 +38,14 @@ const myRoutes = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
-            },{
+            },
+            {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: 'services/:id',
+                element: <SingleService></SingleService>
             }
            
         ]

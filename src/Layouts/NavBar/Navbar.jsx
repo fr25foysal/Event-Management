@@ -106,13 +106,13 @@ const Navbar = () => {
 
             </ul>
           </div>
-          <div className="navbar-end gap-x-2">
+          <div className="navbar-end gap-x-3">
             {
-              user ? <><img className="w-14 rounded-full bg-slate-400" src={user ? `${user.photoURL}` : '/user.png'} alt="" />
-              <p>{user.displayName}</p>
-              <button onClick={handleLogOut} className="btn btn-sm">Logout</button>
-              </>
-              :
+              user ? <><div className="bg-gray-700 text-white flex content-center gap-x-2 border-2 rounded-3xl">
+                <img className="w-10 rounded-full bg-slate-400" src={user ? `${user.photoURL}` : '/user.png'} alt="" />
+                <p className="pr-3">{user.displayName}</p>
+              </div><button onClick={handleLogOut} className="btn btn-sm">Logout</button>
+              </> :
               <Link to={'/login'} className="btn btn-sm">Sign In</Link>
             }
             

@@ -2,7 +2,17 @@ import 'keen-slider/keen-slider.min.css'
 import { useKeenSlider } from 'keen-slider/react' 
 import HomeServiceCard from '../../Components/HomeServiceCard/HomeServiceCard';
 import { useLoaderData } from 'react-router-dom';
+import SectionTitle from '../../Components/SectionTitle/SectionTitle';
+import { useEffect, useState } from 'react';
+import SingleStuff from '../../Components/StuffCard/SingleStuff';
 const Home = () => {
+
+  const [team, setTeam] = useState([])
+  useEffect(()=>{
+      fetch('/stuff.json')
+      .then(res => res.json())
+      .then(data => setTeam(data))
+  },[])
 
   const services = useLoaderData()
     const [sliderRef] = useKeenSlider(
@@ -97,12 +107,11 @@ const Home = () => {
           </div>
         </div>
 <div className='bg-slate-100'>
-<div className="mx-auto py-10 px-4 max-w-7xl lg:px-0">
+<div className="mx-auto  px-4 max-w-7xl lg:px-0">
           {/* Service Section */}
-          <div className="">
-            <div className="max-w-md mb-10 mx-auto text-center">
-              <h1 className="text-4xl font-bold">Our Services</h1>
-              <div className="divider mx-auto w-1/4 mt-0"></div>
+          <div className=" py-16">
+            <div >
+              <SectionTitle text={'Our Services'}></SectionTitle>
             </div>
 
             <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
@@ -113,6 +122,16 @@ const Home = () => {
                 ></HomeServiceCard>
               ))}
             </div>
+          </div>
+
+          {/* Key Executive Section  */}
+          <div className='pb-16'>
+            <SectionTitle text={'Key Executives'}></SectionTitle>
+                <div className='grid grid-cols-3'>
+                  {
+                    team.map(member => <SingleStuff member={member} key={member.id}></SingleStuff>)
+                  }
+                </div>
           </div>
         </div>
 </div>
