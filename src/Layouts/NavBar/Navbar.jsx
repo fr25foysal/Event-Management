@@ -1,12 +1,14 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useAll } from "../../Provider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
+  const notify =()=> toast.success("Succesfully Logged Out")
   const {user,logOut} = useContext(useAll)
   const handleLogOut = () =>{
     logOut()
-    .then(console.log("user logged out"))
+    .then( notify())
     .catch(e => console.error(e.message))
   }
     const navLinks = (
@@ -111,7 +113,7 @@ const Navbar = () => {
             {
               user ? <><div className="bg-gray-700 h-12 text-white flex content-center gap-x-2 border-2 rounded-3xl">
                 <img className=" rounded-full bg-slate-400" src={user ? `${user.photoURL}` : '/user.png'} alt="" />
-                <p className="pr-4 pl-1 pt-[9.5px]">{user.displayName}</p>
+                <p className="pr-4 pl-1 pt-[11px]">{user.displayName}</p>
               </div><button onClick={handleLogOut} className="btn bg-transparent hover:bg-gray-700 border-2 hover:text-white border-black rounded-3xl">Logout</button>
               </> :
               <Link to={'/login'} className="btn bg-transparent hover:bg-gray-700 border-2 hover:text-white border-black rounded-3xl">Sign In</Link>
@@ -120,6 +122,7 @@ const Navbar = () => {
             
           </div>
         </div>
+        <Toaster></Toaster>
       </div>
     );
 };

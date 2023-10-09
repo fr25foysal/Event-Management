@@ -2,11 +2,17 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAll } from "../../Provider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import { FaEye, FaEyeSlash,FaGoogle } from 'react-icons/fa';
 
 const Login = () => {
   const navigate = useNavigate()
+  
+  const [show, setShow] = useState(true)
+  const handlePassShow = ()=>{
+    setShow(!show)
+  }
   const [errMsg, setErrMsg] = useState('')
-  const {loginUser} = useContext(useAll)
+  const {loginUser,loginWithGoogle} = useContext(useAll)
   const notify =()=> toast.success("Successfully logged In")
   const handleSubmit = (e) =>{
     setErrMsg('')
@@ -22,8 +28,17 @@ const Login = () => {
     .catch(e=>setErrMsg(e.message))
   }
   
+  const handleGoogleLogin = ()=>{
+    loginWithGoogle()
+    .then(()=>{
+      notify()
+      navigate('/')
+    }
+      )
+    .catch(e=>setErrMsg(e.message) )
+  }
     return (
-      <div className="grid justify-center min-h-screen pt-24">
+      <div className="grid justify-center min-h-screen pt-16">
         <div className="relative flex h-fit  w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
           <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-gradient-to-tr from-gray-800 to-gray-600 bg-clip-border text-white shadow-lg shadow-gray-700/40">
             <h3 className="block text-3xl font-semibold leading-snug tracking-normal text-white antialiased">
@@ -51,8 +66,13 @@ const Login = () => {
                   placeholder=" "
                   name="password"
                   required
-                  type="password"
+                  type={show ? "password" : "text"}
                 />
+                {
+                  show ? <FaEyeSlash onClick={handlePassShow} className="absolute top-[14px] right-4"></FaEyeSlash> 
+                  : 
+                  <FaEye  onClick={handlePassShow} className="absolute top-[14px] right-4"></FaEye>
+                }
                 <label className="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-600 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-gray-700 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-gray-700 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-gray-700 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
                   Password
                 </label>
@@ -104,6 +124,15 @@ const Login = () => {
                   Sign In
                 </button>
               </div>
+              <div className="divider">OR</div>
+              <div className="flex">
+            <a
+            onClick={handleGoogleLogin}
+             className="flex justify-center w-full mx-auto rounded-lg bg-gray-800 pt-4 pb-3 px-6 text-center align-middle text-xs font-bold uppercase text-white shadow-md shadow-gray-700/20 transition-all hover:shadow-lg hover:shadow-gray-700/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none">
+             <FaGoogle className="text-xl mr-3 "></FaGoogle> Continue with google
+            </a>
+            
+          </div>
               <p className="text-red-600 mt-3 text-center">{errMsg}</p>
 
               <p className="mt-4 block text-center  text-base font-normal leading-relaxed text-gray-700 antialiased">

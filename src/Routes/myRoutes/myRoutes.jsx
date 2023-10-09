@@ -9,11 +9,13 @@ import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import SingleService from "../../Pages/SingleService/SingleService";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 
 const myRoutes = createBrowserRouter([
     {
         path : '/',
         element: <RootLayout></RootLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path : '/',
@@ -31,11 +33,13 @@ const myRoutes = createBrowserRouter([
             },
             {
                 path : '/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute> 
             },
             {
                 path : '/managements',
-                element: <Managemants></Managemants>
+                element:<PrivateRoute><Managemants></Managemants></PrivateRoute>,
+                
+                
             },
             {
                 path: '/login',
