@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 const SectionTitle = ({text}) => {
     return (
         <div className="max-w-md mb-10 mx-auto text-center">
@@ -7,5 +7,7 @@ const SectionTitle = ({text}) => {
         </div>
     );
 };
-
+SectionTitle.propTypes = {
+    text: PropTypes.text
+}
 export default SectionTitle;

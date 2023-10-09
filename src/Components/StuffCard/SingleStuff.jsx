@@ -1,4 +1,6 @@
 import { FaTwitter, FaInstagram ,FaLinkedinIn} from 'react-icons/fa';
+import PropTypes from 'prop-types';
+
 const SingleStuff = ({member}) => {
     const {name,position, image} = member
         return (
@@ -38,5 +40,7 @@ const SingleStuff = ({member}) => {
         </div>
     );
 };
-
+SingleStuff.propTypes = {
+  member: PropTypes.object
+}
 export default SingleStuff;

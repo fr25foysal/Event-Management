@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 const UserReview = ({name, text, position,image }) => {
     return (
       <div>
@@ -96,5 +96,10 @@ const UserReview = ({name, text, position,image }) => {
       </div>
     );
 };
-
+UserReview.propTypes = {
+  name: PropTypes.text,
+  text: PropTypes.text,
+  position: PropTypes.text,
+  image: PropTypes.text
+}
 export default UserReview;

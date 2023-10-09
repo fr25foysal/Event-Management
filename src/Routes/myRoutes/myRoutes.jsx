@@ -8,6 +8,7 @@ import Managemants from "../../Pages/Managements/Managemants";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import SingleService from "../../Pages/SingleService/SingleService";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const myRoutes = createBrowserRouter([
     {
@@ -46,7 +47,7 @@ const myRoutes = createBrowserRouter([
             },
             {
                 path: 'services/:id',
-                element: <SingleService></SingleService>,
+                element: <PrivateRoute><SingleService></SingleService></PrivateRoute> ,
                 loader: ()=> fetch('/services.json')
             }
            
