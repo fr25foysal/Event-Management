@@ -1,27 +1,32 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAll } from "../../Provider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
+  const navigate = useNavigate()
+  const [errMsg, setErrMsg] = useState('')
 const {createUser,updateUserProfile} = useContext(useAll)
   const handleSubmit = e =>{
     
+  const notify =()=> toast.success("Registration Successfull")
     e.preventDefault()
+    setErrMsg('')
     const name = e.target.name.value
     const photoUrl = e.target.photoUrl.value
     const email = e.target.email.value
     const password = e.target.password.value
 
     createUser(email,password)
-    .then(res => {
-      console.log(res.user);
+    .then(() => {
+      notify()
       updateUserProfile(name,photoUrl)
-      .then(res=> {
-        console.log("user Updated",res.user)
+      .then(()=> {
+        
       })
-      .catch(e=>{console.error(e.message)})
+      .catch(e=>{setErrMsg(e.message)})
     })
-    .catch(e=> console.error(e.message))
+    .catch(e=> setErrMsg(e.message))
     
   }
     return (
@@ -92,12 +97,12 @@ const {createUser,updateUserProfile} = useContext(useAll)
               <label
                 className="relative -ml-2.5 flex cursor-pointer items-center rounded-full p-3"
                 htmlFor="checkbox"
-                data-ripple-dark="true"
               >
                 <input
                   type="checkbox"
                   className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-gray-700 checked:bg-gray-700 checked:before:bg-gray-700 hover:before:opacity-10"
                   id="checkbox"
+                  required
                 />
                 <span className="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
                   <svg
@@ -138,7 +143,8 @@ const {createUser,updateUserProfile} = useContext(useAll)
                   Register
                 </button>
               </div>
-
+              <p className="text-red-600 mt-3 text-center">{errMsg}</p>
+            
             <p className="mt-4 block text-center  text-base font-normal leading-relaxed text-gray-700 antialiased">
               Already have an account?
               <Link
@@ -148,8 +154,10 @@ const {createUser,updateUserProfile} = useContext(useAll)
                 Sign In
               </Link>
             </p>
+
           </form>
         </div>
+        <Toaster></Toaster>
       </div>
     );
 };

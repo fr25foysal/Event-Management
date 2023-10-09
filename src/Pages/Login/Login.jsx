@@ -1,21 +1,30 @@
-import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useAll } from "../../Provider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
+  const navigate = useNavigate()
+  const [errMsg, setErrMsg] = useState('')
   const {loginUser} = useContext(useAll)
+  const notify =()=> toast.success("Successfully logged In")
   const handleSubmit = (e) =>{
+    setErrMsg('')
     e.preventDefault()
     const email = e.target.email.value
     const password = e.target.password.value
    
     loginUser(email,password)
-    .then(res=>console.log(res.user,"has been logged in"))
-    .catch(e=>console.error(e.message))
+    .then(()=>{
+      notify()
+      navigate('/')
+    })
+    .catch(e=>setErrMsg(e.message))
   }
+  
     return (
-      <div className="grid justify-center mt-24">
-        <div className="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+      <div className="grid justify-center min-h-screen pt-24">
+        <div className="relative flex h-fit  w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
           <div className="relative mx-4 -mt-6 mb-4 grid h-28 place-items-center overflow-hidden rounded-xl bg-gradient-to-tr from-gray-800 to-gray-600 bg-clip-border text-white shadow-lg shadow-gray-700/40">
             <h3 className="block text-3xl font-semibold leading-snug tracking-normal text-white antialiased">
               Sign In
@@ -95,6 +104,7 @@ const Login = () => {
                   Sign In
                 </button>
               </div>
+              <p className="text-red-600 mt-3 text-center">{errMsg}</p>
 
               <p className="mt-4 block text-center  text-base font-normal leading-relaxed text-gray-700 antialiased">
                 {"Don't have an account?"}
@@ -108,6 +118,7 @@ const Login = () => {
             </div>
           </form>
         </div>
+        <Toaster></Toaster>
       </div>
     );
 };
