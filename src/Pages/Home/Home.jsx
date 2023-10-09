@@ -128,7 +128,7 @@ const Home = () => {
             {/* Key Executive Section  */}
             <div className="pb-16">
               <SectionTitle text={"Key Executives"}></SectionTitle>
-              <div className="grid grid-cols-3">
+              <div className="grid gap-y-6  lg:grid-cols-3">
                 {team.map((member) => (
                   <SingleStuff member={member} key={member.id}></SingleStuff>
                 ))}

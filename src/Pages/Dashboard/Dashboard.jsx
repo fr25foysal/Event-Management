@@ -12,13 +12,13 @@ const Dashboard = () => {
     return (
       <div>
         <div className="bg-slate-100">
-          <div className="max-w-7xl mx-auto grid py-16 content-center">
+          <div className="max-w-7xl mx-auto grid py-16 px-5 content-center">
             
               <div>
                 <SectionTitle text={"My Services"}></SectionTitle>
               </div>
 
-              <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-5">
+              <div className="grid lg:grid-cols-3 grid-cols-1 gap-5">
                 {services.slice(0,6).map((service) => (
                   <HomeServiceCard
                     service={service}

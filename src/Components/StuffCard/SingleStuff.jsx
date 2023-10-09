@@ -5,7 +5,7 @@ const SingleStuff = ({member}) => {
     const {name,position, image} = member
         return (
         <div>
-            <div className="relative hover:-translate-y-4 transition flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+            <div className="relative hover:-translate-y-4 transition flex lg:w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
   <div className="relative mx-4 mt-4 h-80 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700 shadow-lg">
     <img src={image} alt="profile-picture" />
   </div>
@@ -13,7 +13,7 @@ const SingleStuff = ({member}) => {
     <h4 className="mb-2 block text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
       {name}
     </h4>
-    <p className="block bg-gradient-to-tr text-[#60C0E1] bg-clip-text text-base font-medium leading-relaxed text-transparent antialiased">
+    <p className="block bg-gradient-to-tr  text-[#60C0E4] bg-clip-text text-base font-medium leading-relaxed text-transparent antialiased">
      {position}
     </p>
   </div>

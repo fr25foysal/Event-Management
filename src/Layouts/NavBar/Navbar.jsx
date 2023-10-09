@@ -113,7 +113,7 @@ const Navbar = () => {
             {
               user ? <><div className="bg-gray-700 h-12 text-white flex content-center gap-x-2 border-2 rounded-3xl">
                 <img className=" rounded-full bg-slate-400" src={user ? `${user.photoURL}` : '/user.png'} alt="" />
-                <p className="pr-4 pl-1 pt-[11px]">{user.displayName}</p>
+                <p className=" hidden md:block pr-4 pl-1 pt-[11px]">{user.displayName}</p>
               </div><button onClick={handleLogOut} className="btn bg-transparent hover:bg-gray-700 border-2 hover:text-white border-black rounded-3xl">Logout</button>
               </> :
               <Link to={'/login'} className="btn bg-transparent hover:bg-gray-700 border-2 hover:text-white border-black rounded-3xl">Sign In</Link>

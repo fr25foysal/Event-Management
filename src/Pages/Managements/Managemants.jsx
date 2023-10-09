@@ -13,10 +13,10 @@ const Managemants = () => {
         <div>
             <div className="bg-slate-100">
 
-<div className="max-w-7xl mx-auto grid h-screen content-center">
+<div className="max-w-7xl mx-auto grid py-10 px-5 content-center">
 <div className="pb-16">
   <SectionTitle text={"Management Team"}></SectionTitle>
-  <div className="grid grid-cols-3">
+  <div className="grid lg:grid-cols-3 gap-6">
     {team.map((member) => (
       <SingleStuff member={member} key={member.id}></SingleStuff>
     ))}

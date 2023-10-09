@@ -6,12 +6,12 @@ const Services = () => {
     const services = useLoaderData()
     return (
       <div className="bg-slate-100 py-20">
-        <div className="max-w-7xl mx-auto ">
+        <div className="max-w-7xl mx-auto px-5">
           <div>
             <SectionTitle text={"Our Services"}></SectionTitle>
           </div>
 
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-4">
+          <div className="grid lg:grid-cols-3 grid-cols-1 gap-4">
             {services.map((service) => (
               <HomeServiceCard
                 service={service}

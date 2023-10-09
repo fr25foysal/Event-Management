@@ -12,10 +12,10 @@ const AboutUs = () => {
     return (
         <div className="bg-slate-100">
 
-            <div className="max-w-7xl mx-auto grid h-screen content-center">
+            <div className="max-w-7xl mx-auto grid py-10 content-center px-5">
             <div className="pb-16">
               <SectionTitle text={"Key Executives"}></SectionTitle>
-              <div className="grid grid-cols-3">
+              <div className="grid lg:grid-cols-3 gap-4">
                 {team.map((member) => (
                   <SingleStuff member={member} key={member.id}></SingleStuff>
                 ))}

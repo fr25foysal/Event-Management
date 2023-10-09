@@ -4,14 +4,14 @@ const Footer = () => {
     return (
       <div className="bg-gray-800">
         <footer className="footer justify-between max-w-7xl mx-auto items-center p-4  text-neutral-content">
-          <aside className="items-center grid-flow-col">
+          <aside className="items-center  w-full justify-center grid-flow-col">
             
             <p>Copyright © 2023 - All right reserved</p>
           </aside>
           <Link to={'/'}>
             <img src="/logo.png" className="w-1/2 mx-auto" alt="" />
           </Link>
-          <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+          <nav className="grid-flow-col w-full justify-center gap-4 md:place-self-center md:justify-self-end">
             <a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
